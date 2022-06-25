@@ -1,0 +1,9 @@
+classify  修改为 category
+goodsList修改 goodsList
+goodsDetail 修改为 goodsDetail
+
+
+加了 
+api/
+config/
+utils/   部份
