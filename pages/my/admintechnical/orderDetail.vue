@@ -30,8 +30,8 @@
 				<image src="/static/images/mall/order/img_order_address3x.png" class="tui-icon-img"></image>
 				<view class="tui-addr">
 					<view class="tui-addr-userinfo">门店：{{orderDetail.orderInfo.store.title}}<text class="tui-addr-tel">{{orderDetail.orderInfo.address.telephone}}</text></view>
-					<!-- <view class="tui-addr-text">地址：{{orderDetail.orderInfo.store.address}}</view> -->
-					<view class="tui-addr-text">上门地址：{{orderDetail.orderInfo.address.region_name}}{{orderDetail.orderInfo.address.address}}</view>
+					<view class="tui-addr-text">地址：{{orderDetail.orderInfo.store.address}}</view>
+					<!-- <view class="tui-addr-text">地址：{{orderDetail.orderInfo.address.region_name}}{{orderDetail.orderInfo.address.address}}</view> -->
 					<view class="tui-addr-text">电话：{{orderDetail.orderInfo.store.tel}}</view>
 				</view>
 			</view>

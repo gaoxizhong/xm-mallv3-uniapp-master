@@ -24,14 +24,15 @@
 			</view>
 		</view>
 		<tui-list-cell v-if="orderDetail.orderInfo.address_id" unlined :hover="false">
-			<view class="tui-flex-box">
+			<view class="tui-flex-box" @click="openNavigation()">
 				<image src="/static/images/mall/order/img_order_address3x.png" class="tui-icon-img"></image>
 				<view class="tui-addr">
 					<view class="tui-addr-userinfo">联系人：{{orderDetail.orderInfo.address.name}}<text
 							class="tui-addr-tel">{{orderDetail.orderInfo.address.telephone}}</text></view>
-					<view class="tui-addr-text">
+					<!-- <view class="tui-addr-text">
 						上门地址：{{orderDetail.orderInfo.shipping_province}}{{orderDetail.orderInfo.shipping_city}}{{orderDetail.orderInfo.shipping_country}}{{orderDetail.orderInfo.address.address}}
-					</view>
+					</view> -->
+					<view class="tui-addr-text">上门地址：{{orderDetail.orderInfo.address.region_name}}{{orderDetail.orderInfo.address.address}}</view>
 					<view class="tui-addr-text">预约时间：{{orderDetail.orderInfo.ServiceTime}}</view>
 				</view>
 			</view>
@@ -205,6 +206,21 @@
 			});
 		},
 		methods: {
+			// 点击地址导航
+			openNavigation(){
+				let orderDetail = this.orderDetail;
+				let latitude = Number(orderDetail.orderInfo.address.latitude);
+				let longitude = Number(orderDetail.orderInfo.address.longitude);
+				let name = orderDetail.orderInfo.address.region_name + orderDetail.orderInfo.address.address;
+				uni.openLocation({
+					latitude,
+					longitude,
+					name,
+					success: function () {
+						console.log('success');
+					}
+				});
+			},
 			toadditionalPayTap: function(total, orderid) {
 				const redirectUrl = "/pages/my/myOrder/yuyueDetail?id="+orderid;
 				pay.wxpay('additional', total, orderid, redirectUrl);
