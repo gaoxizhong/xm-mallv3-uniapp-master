@@ -3,21 +3,21 @@
 		<form @submit="bindSave" :report-submit="true">
 			<tui-list-cell :hover="false" padding="0">
 				<view class="tui-line-cell">
-					<view class="tui-title">收货人</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="name" :value="addressData.name" placeholder="请输入收货人姓名"
+					<view class="tui-title">联系人</view>
+					<input placeholder-class="tui-phcolor" class="tui-input" name="name" :value="addressData.name" placeholder="请输入联系人姓名"
 						maxlength="15" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell :hover="false" padding="0">
 				<view class="tui-line-cell">
 					<view class="tui-title">手机号码</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="telephone" :value="addressData.telephone" placeholder="请输入收货人手机号码"
+					<input placeholder-class="tui-phcolor" class="tui-input" name="telephone" :value="addressData.telephone" placeholder="请输入联系人手机号码"
 						maxlength="11" type="text" />
 				</view>
 			</tui-list-cell>
 			<tui-list-cell @tap="onChangePosition()" :hover="true" padding="0" :arrow="true">
 				<view class="tui-line-cell">
-					<view class="tui-title">收货地址</view>
+					<view class="tui-title">洗车地址</view>
 					<view :style="'color:'+(fieldsvalue.address?'#333':'#ccc')+';'">{{fieldsvalue.region_name?fieldsvalue.region_name:'请选择地址'}}</view>
 				</view>
 			</tui-list-cell>
@@ -33,7 +33,21 @@
 			<tui-list-cell :hover="false" padding="0">
 				<view class="tui-line-cell">
 					<view class="tui-title">详细地址</view>
-					<input placeholder-class="tui-phcolor" class="tui-input" name="address" placeholder="请输入详细的收货地址"
+					<input placeholder-class="tui-phcolor" class="tui-input" name="address" placeholder="请输入详细的地址"
+						maxlength="50" type="text" />
+				</view>
+			</tui-list-cell>
+			<tui-list-cell :hover="false" padding="0">
+				<view class="tui-line-cell">
+					<view class="tui-title">车牌</view>
+					<input placeholder-class="tui-phcolor" class="tui-input" name="plate" placeholder="请输入车牌"
+						maxlength="50" type="text" />
+				</view>
+			</tui-list-cell>
+			<tui-list-cell :hover="false" padding="0">
+				<view class="tui-line-cell">
+					<view class="tui-title">车型</view>
+					<input placeholder-class="tui-phcolor" class="tui-input" name="car_type" placeholder="请输入车型,例:小客车/货车/厢式货车等"
 						maxlength="50" type="text" />
 				</view>
 			</tui-list-cell>
@@ -61,7 +75,7 @@
 				<tui-button formType="submit" shadow type="danger" height="88rpx" shape="circle">保存地址</tui-button>
 			</view>
 			<view class="tui-del" v-if="addressData.length > 0">
-				<tui-button shadow type="gray" @click="deleteAddress" height="88rpx" shape="circle">删除收货地址</tui-button>
+				<tui-button shadow type="gray" @click="deleteAddress" height="88rpx" shape="circle">删除洗车地址</tui-button>
 			</view>
 		</form>
 	</view>
@@ -291,6 +305,8 @@
 				var name = e.detail.value.name;
 				var address = e.detail.value.address?e.detail.value.address:'';
 				var telephone = e.detail.value.telephone;
+				var plate = e.detail.value.plate;
+				var car_type = e.detail.value.car_type;
 				var fieldsvalue = _this.fieldsvalue;
 				console.log(fieldsvalue)
 				// var address = fieldsvalue.address?fieldsvalue.address:''; 
@@ -350,6 +366,8 @@
 						name: name,
 						address: address,
 						telephone: telephone,
+						plate,
+						car_type,
 						isDefault: '1',
 						region_name,
 						latitude: fieldsvalue.latitude,
@@ -364,6 +382,8 @@
 						name: name,
 						address: address,
 						telephone: telephone,
+						plate,
+						car_type,
 						isDefault: '1',
 						region_name,
 						latitude: fieldsvalue.latitude,

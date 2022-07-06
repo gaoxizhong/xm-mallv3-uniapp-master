@@ -25,7 +25,7 @@
 		</view>
 		<!-- 新增地址 -->
 		<view class="tui-address-new">
-			<tui-button shadow shape="circle" type="danger" height="88rpx" @click="addAddess">+ 新增收货地址</tui-button>
+			<tui-button shadow shape="circle" type="danger" height="88rpx" @click="addAddess">+ 新增洗车地址</tui-button>
 		</view>
 	</view>
 </template>

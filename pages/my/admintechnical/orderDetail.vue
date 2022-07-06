@@ -22,6 +22,7 @@
 					<!-- <view class="tui-addr-text">上门地址：{{orderDetail.orderInfo.shipping_province}}{{orderDetail.orderInfo.shipping_city}}{{orderDetail.orderInfo.shipping_country}}{{orderDetail.orderInfo.address.address}}</view> -->
 					<view class="tui-addr-text">上门地址：{{orderDetail.orderInfo.address.region_name}}{{orderDetail.orderInfo.address.address}}</view>
 		            <view class="tui-addr-text">预约时间：{{orderDetail.orderInfo.ServiceTime}}</view>
+					<view class="tui-addr-text">车牌：{{orderDetail.orderInfo.address.plate?orderDetail.orderInfo.address.plate:''}} / 车型：{{orderDetail.orderInfo.address.car_type?orderDetail.orderInfo.address.car_type:''}}</view>
 				</view>
 			</view>
 		</tui-list-cell>
